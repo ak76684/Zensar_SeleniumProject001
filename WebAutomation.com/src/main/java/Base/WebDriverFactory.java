@@ -1,5 +1,5 @@
 package Base;
-import Base.ConfigFileManager;
+import Base.PropertyReaderFile;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -18,8 +18,8 @@ public class WebDriverFactory {
 
 	public static void initDriver() {
 
-		String browser = ConfigFileManager.get("browser");
-		boolean isHeadless = ConfigFileManager.getBoolean("headless");
+		String browser = PropertyReaderFile.get("browser");
+		boolean isHeadless = PropertyReaderFile.getBoolean("headless");
 
 		WebDriver driver;
 
@@ -36,6 +36,7 @@ public class WebDriverFactory {
 			chromeOptions.addArguments("--start-maximized");
 			chromeOptions.addArguments("--disable-notifications");
 			chromeOptions.addArguments("--remote-allow-origins=*");
+			chromeOptions.addArguments("--incognito");
 
 			driver = new ChromeDriver(chromeOptions);
 			break;

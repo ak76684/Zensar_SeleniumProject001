@@ -3,7 +3,7 @@
 <suite name="Suite">
   <test thread-count="5" name="Test">
     <classes>
-      <class name="WebAutomation.com.WebAutomation.com.AppTest"/>
+      <class name="Base.BaseTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

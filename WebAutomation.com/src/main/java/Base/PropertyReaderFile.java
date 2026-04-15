@@ -4,7 +4,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
-public class ConfigFileManager {
+public class PropertyReaderFile {
 
 	private static final Properties PROPERTIES = new Properties();
 
@@ -24,6 +24,18 @@ public class ConfigFileManager {
 
 	public static boolean getBoolean(String key) {
 		return Boolean.parseBoolean(get(key));
+	}
+	
+	public static String getSecure(String key) {
+	    String value = System.getenv(key);
+
+	    if (value != null && !value.isEmpty()) {
+	        return value;
+	    }
+
+	    value = System.getProperty(key);
+
+	    return PROPERTIES.getProperty(key);
 	}
 
 }

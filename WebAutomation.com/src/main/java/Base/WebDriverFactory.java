@@ -59,7 +59,7 @@ public class WebDriverFactory {
 			FirefoxOptions firefoxOptions = new FirefoxOptions();
 
 			if (isHeadless) {
-				firefoxOptions.addArguments("-headless");
+				firefoxOptions.addArguments("--headless");
 			}
 
 			driver = new FirefoxDriver(firefoxOptions);

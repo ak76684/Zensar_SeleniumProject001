@@ -9,8 +9,9 @@ public class PropertyReaderFile {
 	private static final Properties PROPERTIES = new Properties();
 
 	static {
+		String path = "src/main/resource/config.properties";
 		try {
-			FileInputStream fis = new FileInputStream("src/main/resources/config.properties");
+			FileInputStream fis = new FileInputStream(path);
 			PROPERTIES.load(fis);
 		} catch (IOException e) {
 			throw new RuntimeException("Failed to load config file");

@@ -19,74 +19,94 @@ public class PIMPage {
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         PageFactory.initElements(driver, this);
     }
+    
+    @FindBy(xpath="//span[text()='PIM']") 
+    private WebElement pimMenuButton;
+    
+    @FindBy(xpath = "//button[contains(@class,'oxd-button') and normalize-space()='Add']")
+    private WebElement addEmployeeButton;
 
-    @FindBy(name = "firstName")
+    
+    @FindBy(name="firstName")
     private WebElement firstNameInput;
-
-    @FindBy(name = "middleName")
+    
+    @FindBy(name="middleName")
     private WebElement middleNameInput;
 
-    @FindBy(name = "lastName")
+    @FindBy(name="lastName")
     private WebElement lastNameInput;
 
-    @FindBy(name = "employeeId")
+    @FindBy(xpath="//label[normalize-space()='Employee Id']/following::input[1]")
     private WebElement employeeIdInput;
 
-    @FindBy(css = "button[type='submit']")
+    @FindBy(xpath="//button[@type='submit']")
     private WebElement saveButton;
 
     @FindBy(xpath = "//button[normalize-space()='Cancel']")
     private WebElement cancelButton;
 
-    @FindBy(xpath = "//label[.//span[text()='Create Login Details']]/../div")
+    @FindBy(xpath ="//p[normalize-space()='Create Login Details']/following::input[@type='checkbox']")
     private WebElement createLoginDetailsToggle;
 
-    @FindBy(xpath = "//a[.//span[text()='PIM'] or .//p[text()='PIM']] | //button[.//span[text()='PIM']]")
-    private WebElement pimMenuButton;
-
-    @FindBy(xpath = "//button[normalize-space()='+ Add'] | //a[normalize-space()='+ Add']")
-    private WebElement addEmployeeButton;
-
-    @FindBy(xpath = "//h6[contains(text(), 'Add Employee')] | //h1[contains(text(), 'Add Employee')]")
+    
+    @FindBy(xpath ="//a[text()='Add Employee']")
     private WebElement addEmployeeHeader;
+    
+    
+    @FindBy(xpath ="//label[normalize-space()='Username']/following::input[1]")
+    private WebElement usernameInput;
 
-    public PIMPage clickPIMMenu() {
+    @FindBy(xpath = "//label[normalize-space()='Password']/following::input[1]")
+    private WebElement passwordInput;
+
+    @FindBy(xpath = "//label[normalize-space()='Confirm Password']/following::input[1]")
+    private WebElement confirmPasswordInput;
+
+    @FindBy(xpath ="//label[normalize-space()='Enabled']")
+    private WebElement statusEnabledOption;
+
+    @FindBy(xpath ="//label[normalize-space()='Disabled']")
+    private WebElement statusDisabledOption;
+
+    
+    
+  public void clickPIMMenu() {
         wait.until(ExpectedConditions.elementToBeClickable(pimMenuButton)).click();
-        return this;
+        
     }
 
-    public PIMPage clickAddEmployee() {
+    public void clickAddEmployee() {
         wait.until(ExpectedConditions.elementToBeClickable(addEmployeeButton)).click();
-        return this;
+        
     }
 
-    public PIMPage waitForAddEmployeePage() {
-        wait.until(ExpectedConditions.visibilityOf(addEmployeeHeader));
-        return this;
+    
+    public boolean isAddEmployeeHeaderDisplayed() {
+        return wait.until(ExpectedConditions.visibilityOf(addEmployeeHeader)).isDisplayed();
     }
 
-    public PIMPage enterFirstName(String firstName) {
-        wait.until(ExpectedConditions.elementToBeClickable(firstNameInput)).clear();
+    public  void enterFirstName(String firstName) {
+        firstNameInput.clear();
         firstNameInput.sendKeys(firstName);
-        return this;
+        
     }
 
-    public PIMPage enterMiddleName(String middleName) {
-        wait.until(ExpectedConditions.elementToBeClickable(middleNameInput)).clear();
+    public void enterMiddleName(String middleName) {
+        middleNameInput.clear();
         middleNameInput.sendKeys(middleName);
-        return this;
+       
     }
 
-    public PIMPage enterLastName(String lastName) {
-        wait.until(ExpectedConditions.elementToBeClickable(lastNameInput)).clear();
+    public void enterLastName(String lastName) {
+        lastNameInput.clear();
         lastNameInput.sendKeys(lastName);
-        return this;
+        
     }
 
-    public PIMPage enterEmployeeId(String employeeId) {
-        wait.until(ExpectedConditions.elementToBeClickable(employeeIdInput)).clear();
+    public void enterEmployeeId(String employeeId) {
+        employeeIdInput.clear();
         employeeIdInput.sendKeys(employeeId);
-        return this;
+       
     }
 
     public PIMPage setCreateLoginDetails(boolean enable) {
@@ -111,4 +131,43 @@ public class PIMPage {
     public boolean isAddEmployeeSectionDisplayed() {
         return addEmployeeHeader.isDisplayed();
     }
+    
+    public void  enterUsername(String username) {
+        usernameInput.clear();
+        usernameInput.sendKeys(username);
+        
+    }
+
+    public void  enterPassword(String password) {
+        passwordInput.clear();
+        passwordInput.sendKeys(password);
+       
+    }
+
+    public void enterConfirmPassword(String confirmPassword) {
+        confirmPasswordInput.clear();
+        confirmPasswordInput.sendKeys(confirmPassword);
+       
+    }
+
+    public void selectStatusEnabled() {
+        wait.until(ExpectedConditions.elementToBeClickable(statusEnabledOption)).click();
+        
+    }
+
+    public  selectStatusDisabled() {
+        wait.until(ExpectedConditions.elementToBeClickable(statusDisabledOption)).click();
+        
+    }
+
+    public boolean isStatusEnabledSelected() {
+        return statusEnabledOption.isSelected();
+    }
+
+    public boolean isStatusDisabledSelected() {
+        return statusDisabledOption.isSelected();
+    }
+
+    
+    
 }

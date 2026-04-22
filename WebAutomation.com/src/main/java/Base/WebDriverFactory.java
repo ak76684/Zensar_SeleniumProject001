@@ -35,8 +35,8 @@ public class WebDriverFactory {
 
 			chromeOptions.addArguments("--start-maximized");
 			chromeOptions.addArguments("--disable-notifications");
-			chromeOptions.addArguments("--remote-allow-origins=*");
-			chromeOptions.addArguments("--incognito");
+//			chromeOptions.addArguments("--remote-allow-origins=*");
+//			chromeOptions.addArguments("--incognito");
 
 			driver = new ChromeDriver(chromeOptions);
 			break;

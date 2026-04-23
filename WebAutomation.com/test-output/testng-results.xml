@@ -2,16 +2,16 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-04-17T13:18:58 IST" name="Default suite" finished-at="2026-04-17T13:19:12 IST" duration-ms="14297">
+  <suite started-at="2026-04-22T21:15:27 IST" name="Default suite" finished-at="2026-04-22T21:15:54 IST" duration-ms="27934">
     <groups>
     </groups>
-    <test started-at="2026-04-17T13:18:58 IST" name="Default test" finished-at="2026-04-17T13:19:12 IST" duration-ms="14297">
-      <class name="WebAutomation.com.WebAutomation.com.BranchSmokeTestTestNG">
-        <test-method signature="smokeTest()[pri:0, instance:WebAutomation.com.WebAutomation.com.BranchSmokeTestTestNG@626abbd0]" started-at="2026-04-17T13:18:58 IST" name="smokeTest" finished-at="2026-04-17T13:19:12 IST" duration-ms="14155" status="PASS">
+    <test started-at="2026-04-22T21:15:27 IST" name="Default test" finished-at="2026-04-22T21:15:54 IST" duration-ms="27934">
+      <class name="WebAutomation.com.WebAutomation.com.OrangeLogin">
+        <test-method signature="loginAndGoToAdmin()[pri:0, instance:WebAutomation.com.WebAutomation.com.OrangeLogin@169bb4dd]" started-at="2026-04-22T21:15:27 IST" name="loginAndGoToAdmin" finished-at="2026-04-22T21:15:54 IST" duration-ms="27744" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- smokeTest -->
-      </class> <!-- WebAutomation.com.WebAutomation.com.BranchSmokeTestTestNG -->
+        </test-method> <!-- loginAndGoToAdmin -->
+      </class> <!-- WebAutomation.com.WebAutomation.com.OrangeLogin -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

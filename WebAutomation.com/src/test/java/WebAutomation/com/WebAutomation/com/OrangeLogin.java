@@ -23,10 +23,10 @@ public class OrangeLogin {
         driver.findElement(By.xpath("//button[normalize-space()='Login']")).click();
 
         // Go to Admin page
-       Thread.sleep(3000); // simple wait
-        driver.findElement(By.xpath("//span[text()='Admin']")).click();
+       //Thread.sleep(3000); // simple wait
+        //driver.findElement(By.xpath("//span[text()='Admin']")).click();
 
-        Thread.sleep(3000); // just to see result
+       // Thread.sleep(3000); // just to see result
         driver.quit();
     }
 }

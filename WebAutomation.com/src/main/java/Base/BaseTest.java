@@ -23,7 +23,7 @@ public class BaseTest {
 
 	@AfterClass
 	public void tearDown() {
-		WebDriverFactory.quitDriver();
+		//WebDriverFactory.quitDriver();
 	}
 
 

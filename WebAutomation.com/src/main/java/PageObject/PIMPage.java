@@ -7,19 +7,15 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
+import Base.BasePage;
 
-public class PIMPage {
 
-    private final WebDriver driver;
-    private final WebDriverWait wait;
+public class PIMPage extends BasePage {
 
     public PIMPage(WebDriver driver) {
-        this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        PageFactory.initElements(driver, this);
+        super(driver);
     }
-    
+
     @FindBy(xpath="//span[text()='PIM']") 
     private WebElement pimMenuButton;
     
@@ -28,6 +24,27 @@ public class PIMPage {
     
     @FindBy(name="firstName")
     private WebElement firstNameInput;
+    
+
+    @FindBy(name="middleName")
+    private WebElement middleNameInput;
+
+    @FindBy(name="lastName")
+    private WebElement lastNameInput;
+
+    @FindBy(xpath="//label[normalize-space()='Employee Id']/following::input[1]")
+    private WebElement employeeIdInput;
+
+    @FindBy(xpath="//button[@type='submit']")
+    private WebElement saveButton;
+
+    @FindBy(xpath = "//button[normalize-space()='Cancel']")
+    private WebElement cancelButton;
+
+    @FindBy(xpath ="//p[normalize-space()='Create Login Details']/following::input[@type='checkbox']")
+    private WebElement createLoginDetailsToggle;
+
+
 
     
    

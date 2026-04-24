@@ -1,16 +1,19 @@
 package Base;
 import java.time.Duration;
 
+
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import Base.WebDriverFactory;
 
 public class BaseTest {
 
-	protected WebDriver driver;
+	public WebDriver driver;
 
-	@BeforeMethod
+	@BeforeClass
 	public void setup() {
 		WebDriverFactory.initDriver();
 		driver = WebDriverFactory.getDriver();
@@ -18,7 +21,7 @@ public class BaseTest {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 	}
 
-	@AfterMethod
+	@AfterClass
 	public void tearDown() {
 		//WebDriverFactory.quitDriver();
 	}

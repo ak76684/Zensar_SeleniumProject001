@@ -41,8 +41,10 @@ public class PIMPage extends BasePage {
     @FindBy(xpath = "//button[normalize-space()='Cancel']")
     private WebElement cancelButton;
 
-    @FindBy(xpath ="//p[normalize-space()='Create Login Details']/following::input[@type='checkbox']")
+    @FindBy(xpath ="//p[normalize-space()='Create Login Details']/following::input[@type='checkbox']//following-sibling::span")
     private WebElement createLoginDetailsToggle;
+    
+    
     
     
     @FindBy(xpath ="//a[text()='Add Employee']")
@@ -105,15 +107,20 @@ public class PIMPage extends BasePage {
        
     }
 
-    public PIMPage setCreateLoginDetails(boolean enable) {
-        if (createLoginDetailsToggle != null) {
-            boolean isSelected = createLoginDetailsToggle.getAttribute("class").contains("oxd-switch-input--active")
-                    || createLoginDetailsToggle.getAttribute("aria-checked").equalsIgnoreCase("true");
-            if (enable != isSelected) {
+    public void setCreateLoginDetails() {
+    	
+      //  if (createLoginDetailsToggle != null) {
+            boolean isSelected = createLoginDetailsToggle.getAttribute("class").contains("oxd-switch-input--active");
+                   
+            if (isSelected) {
+            	wait.until(ExpectedConditions.visibilityOf(createLoginDetailsToggle));
+            	
                 createLoginDetailsToggle.click();
+                
             }
-        }
-        return this;
+     //   }
+       
+        
     }
 
     public void clickSave() {

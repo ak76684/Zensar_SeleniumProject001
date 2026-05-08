@@ -19,13 +19,76 @@ public class PIMTest extends BaseTest {
     }
 
    
-    @Test(description = "Verify user can click on PIM menu")
+    @Test(priority=1)
     public void testClickPIMMenu() {
     	loginpage = new LoginPage(driver);
 		String pagetitle = loginpage.login(PropertyReaderFile.get("username"), PropertyReaderFile.get("password"));
         pimPage.clickPIMMenu();
-        Assert.assertTrue(pimPage.isAddEmployeeHeaderDisplayed(), "PIM menu should be accessible");
+        Assert.assertTrue(pimPage.isAddEmployeeHeaderDisplayed(), "PIM menu not accessible");
+    	pimPage.clickAddEmployee();
+        Assert.assertTrue(pimPage.isAddEmployeeHeaderDisplayed(), "Add Employee page not  displayed");
     }
+    
+    @Test(enabled=false)
+    public void testAddEmployeeWithBasicDetails() {
+        //pimPage.clickPIMMenu();
+       // pimPage.clickAddEmployee();
+        
+        pimPage.enterFirstName("John");
+        pimPage.enterMiddleName("Michael");
+        pimPage.enterLastName("Dan");
+        pimPage.enterEmployeeId("EMP001");
+        
+        pimPage.clickSave();
+        
+        Assert.assertTrue(pimPage.isAddEmployeeSectionDisplayed(), "Employee not added");
+    }
+    
+    @Test(priority=2)
+    public void testAddEmployeeWithLoginDetailsEnabled() {
+        
+        pimPage.enterFirstName("Arjun");
+        pimPage.enterLastName("kumar");
+        pimPage.enterEmployeeId("EMP003");
+        
+        // Enable login details
+        pimPage.setCreateLoginDetails();
+        pimPage.enterUsername("arjun");
+        pimPage.enterPassword("Password@123");
+        pimPage.enterConfirmPassword("Password@123");
+      //  pimPage.setCreateLoginDetails();
+        pimPage.selectStatusEnabled();
+        pimPage.clickSave();
+        
+        Assert.assertTrue(pimPage.isAddEmployeeSectionDisplayed(), "Employee with login details not added");
+    }
+    
+    @Test(enabled=false)
+    public void testAddEmployeeWithLoginDetailsStatusDisabled() {
+        
+        pimPage.enterFirstName("Varun");
+        pimPage.enterLastName("kumar");
+        pimPage.enterEmployeeId("EMP004");
+        
+        // Enable login details
+        pimPage.setCreateLoginDetails();
+        pimPage.enterUsername("varun");
+        pimPage.enterPassword("Password@123");
+        pimPage.enterConfirmPassword("Password@123");
+      //  pimPage.setCreateLoginDetails();
+        pimPage.selectStatusDisabled();
+        pimPage.clickSave();
+        
+        Assert.assertTrue(pimPage.isAddEmployeeSectionDisplayed(), "Employee with login details not added");
+    }
+
+
+
+    
+    
+    
+   
+
 
    
 

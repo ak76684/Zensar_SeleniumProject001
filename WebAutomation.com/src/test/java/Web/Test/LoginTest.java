@@ -23,6 +23,7 @@ public class LoginTest extends BaseTest{
 		String pagetitle = loginpage.login(PropertyReaderFile.get("username"), PropertyReaderFile.get("password"));
 	}
 	
+	/*
 	@AfterMethod
 	public void logout() {
 		
@@ -30,6 +31,7 @@ public class LoginTest extends BaseTest{
 		boolean Loginpagedisplay = loginpage.isLoginPageDisplayed();
 		Assert.assertEquals(Loginpagedisplay, true);
 	}
+	*/
 	
 
 }

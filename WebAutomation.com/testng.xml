@@ -9,7 +9,8 @@
   <test thread-count="5" name="Test">
     <classes>
       <class name="Web.Test.LoginTest"/>
-	<class name="Web.Test.RecruitmentTest"/>
+       <class name="Web.Test.PIMTest"/>
+	
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
